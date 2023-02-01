@@ -5,7 +5,10 @@ const VehicleModule = require("./vehicleBaseClass")
 let v = new VehicleModule.Vehicle("Mecury", "Sedan", "1965", "color", "mileage");
 console.log(v.make)
 
+// properties
+
 class Car extends VehicleModule{
+    // constructor and super for properties
     constructor (make, model, year, color, mileage){
         super(make, model, year, color, mileage);
         this.maximumPassengers = 5;
@@ -15,9 +18,12 @@ class Car extends VehicleModule{
         this.fuel = 10;
         this.scheduleService = false;
     }
+    //methods
+
     loadPassenger(num){
         if (this.passenger < this.maximumPassengers){
-            if ((num + this.passenger) <= this.maximumPassengers)
+            // If there is enough room foor passengers this will state it. If not then the else statement will prompt a message.
+            if ((num + this.passenger) >= this.maximumPassengers)
             this.passenger = num;
             return this.passenger;
         } else{
@@ -26,6 +32,7 @@ class Car extends VehicleModule{
     }
     start(){
         if (this.fuel > 0){
+            // If there is enough fuel in the tank the message will prompt that the vehicle has started. If not the else statement will show.
             console.log(" the vehicle has started ")
             return this.started = true
         } else {
